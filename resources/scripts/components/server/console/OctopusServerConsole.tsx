@@ -12,8 +12,6 @@ import UptimeDuration from '@/components/server/UptimeDuration';
 import useWebsocketEvent from '@/plugins/useWebsocketEvent';
 import { capitalize } from '@/lib/strings';
 import classNames from 'classnames';
-import FileManagerCard from '@/components/server/files/FileManagerCard';
-import useFileManagerSwr from '@/plugins/useFileManagerSwr';
 
 type Stats = Record<'memory' | 'cpu' | 'disk' | 'uptime' | 'rx' | 'tx', number>;
 
