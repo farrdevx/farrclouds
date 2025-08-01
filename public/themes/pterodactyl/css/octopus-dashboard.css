@@ -1,0 +1,328 @@
+/* Octopus Dashboard Theme Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Dashboard body styling with modern glow */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated gradient overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(67, 56, 202, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    animation: glowPulse 8s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+/* Shooting star animations for dashboard */
+.dashboard-shooting-star {
+    position: fixed;
+    height: 1px;
+    background: linear-gradient(-45deg, rgba(167, 139, 250, 0.8), rgba(255, 255, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 4px rgba(196, 181, 253, 0.6));
+    animation: dashboard-tail 4s ease-in-out infinite, dashboard-shooting 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes dashboard-tail {
+    0% { width: 0; }
+    30% { width: 80px; }
+    100% { width: 0; }
+}
+
+@keyframes dashboard-shooting {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(300px); }
+}
+
+/* Different positions and delays for dashboard shooting stars */
+.dashboard-shooting-star:nth-child(1) { 
+    top: 15%; 
+    left: -10%; 
+    animation-delay: 0s; 
+}
+
+.dashboard-shooting-star:nth-child(2) { 
+    top: 40%; 
+    left: -15%; 
+    animation-delay: 2s; 
+}
+
+.dashboard-shooting-star:nth-child(3) { 
+    top: 70%; 
+    left: -5%; 
+    animation-delay: 1s; 
+}
+
+.dashboard-shooting-star:nth-child(4) { 
+    top: 90%; 
+    left: -12%; 
+    animation-delay: 3s; 
+}
+
+/* Floating particles effect */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(124, 58, 237, 0.6);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+    box-shadow: 0 0 6px rgba(124, 58, 237, 0.8);
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 25s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 30s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 22s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 6s; animation-duration: 28s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 8s; animation-duration: 26s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 10s; animation-duration: 24s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 12s; animation-duration: 32s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 14s; animation-duration: 29s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 16s; animation-duration: 27s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Nebula background elements for dashboard */
+.dashboard-nebula {
+    position: fixed;
+    opacity: 0.05;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dashboard-nebula-1 {
+    top: 5%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    color: #a855f7;
+}
+
+.dashboard-nebula-2 {
+    bottom: -5%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    color: #4338ca;
+}
+
+/* Glass morphism for content blocks with glow */
+.octopus-content-block {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.octopus-content-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+        rgba(124, 58, 237, 0.3) 0%, 
+        rgba(139, 92, 246, 0.2) 50%, 
+        rgba(67, 56, 202, 0.3) 100%);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+    animation: borderGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Navigation bar styling with modern glow */
+.octopus-navbar {
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+    box-shadow: 0 4px 32px rgba(124, 58, 237, 0.2), 
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 100;
+}
+
+.octopus-navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(124, 58, 237, 0.6) 20%, 
+        rgba(139, 92, 246, 0.8) 50%, 
+        rgba(124, 58, 237, 0.6) 80%, 
+        transparent 100%);
+    animation: navGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes navGlow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Server row styling */
+.octopus-server-row {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.octopus-server-row:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(167, 139, 250, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(167, 139, 250, 0.1);
+}
+
+/* Button styling for dashboard */
+.octopus-button {
+    background: linear-gradient(135deg, #7c3aed, #4338ca);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.octopus-button:hover {
+    background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+}
+
+/* Input styling for dashboard */
+.octopus-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.octopus-input:focus {
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+    outline: none;
+}
+
+.octopus-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Text colors for dashboard */
+.octopus-text-primary {
+    color: #f3f4f6;
+}
+
+.octopus-text-secondary {
+    color: #d1d5db;
+}
+
+.octopus-text-muted {
+    color: #9ca3af;
+}
+
+/* Card styling with modern glow effects */
+.octopus-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.octopus-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(124, 58, 237, 0.1) 50%, 
+        transparent 100%);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.octopus-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5),
+                0 0 32px rgba(124, 58, 237, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.octopus-card:hover::before {
+    left: 100%;
+}

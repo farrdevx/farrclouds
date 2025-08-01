@@ -1,0 +1,84 @@
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Shooting star animations */
+.shooting-star {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(167, 139, 250, 1), rgba(255, 255, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(196, 181, 253, 0.8));
+    animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
+}
+
+@keyframes tail {
+    0% { width: 0; }
+    30% { width: 100px; }
+    100% { width: 0; }
+}
+
+@keyframes shooting {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(400px); }
+}
+
+/* Different positions and delays for shooting stars */
+.shooting-star:nth-child(1) { 
+    top: 10%; 
+    left: -10%; 
+    animation-delay: 0s; 
+}
+
+.shooting-star:nth-child(2) { 
+    top: 30%; 
+    left: -20%; 
+    animation-delay: 1.2s; 
+}
+
+.shooting-star:nth-child(3) { 
+    top: 60%; 
+    left: -5%; 
+    animation-delay: 0.5s; 
+}
+
+.shooting-star:nth-child(4) { 
+    top: 85%; 
+    left: -15%; 
+    animation-delay: 2.5s; 
+}
+
+/* Apply Inter font to body and fix scroll */
+html, body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container auth harus fixed */
+#app {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Auth page specific styles */
+.auth-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent any scrolling on auth pages */
+body.auth-page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
