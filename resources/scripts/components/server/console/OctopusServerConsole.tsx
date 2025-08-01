@@ -10,6 +10,7 @@ import { bytesToString, ip, mbToBytes } from '@/lib/formatters';
 import { SocketEvent, SocketRequest } from '@/components/server/events';
 import UptimeDuration from '@/components/server/UptimeDuration';
 import useWebsocketEvent from '@/plugins/useWebsocketEvent';
+import useFileManagerSwr from '@/plugins/useFileManagerSwr';
 import { capitalize } from '@/lib/strings';
 import classNames from 'classnames';
 
